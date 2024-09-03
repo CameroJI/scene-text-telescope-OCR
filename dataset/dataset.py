@@ -84,7 +84,7 @@ class lmdbDataset(Dataset):
             img = buf2PIL(txn, b'image_hr-%09d' % index, 'RGB')
         except TypeError:
             img = buf2PIL(txn, b'image-%09d' % index, 'RGB')
-        except IOError or len(label) > self.max_len:
+        except IOError or len(label_key) > self.max_len:
             return self[index + 1]
 
         label_str = str_filt(word, self.voc_type)
