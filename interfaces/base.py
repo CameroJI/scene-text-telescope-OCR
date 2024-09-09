@@ -184,7 +184,7 @@ class TextBase(object):
                     model.load_state_dict(torch.load(self.resume)['state_dict_G'])
                 else:
                     model.load_state_dict(
-                        {'module.' + k: v for k, v in torch.load(cfg.Test.checkpoint)})
+                        {'module.' + k: v for k, v in torch.load(cfg.TEST.checkpoint)})
 
         para_num = get_parameter_number(model)
         self.logging.info('Total Parameters {}'.format(para_num))
