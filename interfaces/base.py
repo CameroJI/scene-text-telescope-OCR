@@ -183,8 +183,9 @@ class TextBase(object):
                 if self.config.TRAIN.ngpu == 1:
                     model.load_state_dict(torch.load(self.resume)['state_dict_G'])
                 else:
-                    model.load_state_dict(
-                        {'module.' + k: v for k, v in torch.load(self.config.TEST.checkpoint)})
+                    model.load_state_dict(torch.load(self.config.TEST.checkpoint))
+                    # model.load_state_dict(
+                    #     {'module.' + k: v for k, v in torch.load(self.config.TEST.checkpoint)})
 
         para_num = get_parameter_number(model)
         self.logging.info('Total Parameters {}'.format(para_num))
