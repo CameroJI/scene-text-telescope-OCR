@@ -40,7 +40,7 @@ TRAIN:
     crnn_pretrained: './dataset/mydata/crnn.pth'
 
 TEST:
-  checkpoint: ''
+  checkpoint: './checkpoint/EXP_NAME/model_best.pth'
   test_data_dir: [
   ]
 
